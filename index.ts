@@ -27,12 +27,10 @@ class PipelinesStack extends Stack {
     const pipeline = new pipelines.CodePipeline(this, 'C2APipeline', {
       pipelineName: 'C2APipeline',
       synth: new pipelines.ShellStep('Synth', {
-        input: pipelines.CodePipelineSource.gitHub('bryanpan342/cdk-pipelines-v2', 'master', {
-          authentication: SecretValue.secretsManager('github-token'),
-        }),
+        input: pipelines.CodePipelineSource.gitHub('bryanpan342/cdk-pipelines-v2', 'master'),
         commands: [
           'yarn install',
-          'yarn build build',
+          'yarn build',
           'npx cdk synth',
         ],
       })
