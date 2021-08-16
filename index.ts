@@ -16,9 +16,6 @@ class MyStage extends Stage {
 
     const topic = new sns.Topic(stack, 'Topic');
     topic.grantPublish(new iam.AccountPrincipal(stack.account));
-
-    const newTopic = new sns.Topic(stack, 'NewTopic');
-    newTopic.grantPublish(new iam.AccountPrincipal(stack.account));
   }
 }
 
