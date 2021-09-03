@@ -30,14 +30,17 @@ class PipelinesStack extends Stack {
     
     const pipeline = new pipelines.CodePipeline(this, 'C2APipeline', {
       pipelineName: 'C2APipeline',
+      selfMutation: false,
       synth: new pipelines.ShellStep('Synth', {
-        input: pipelines.CodePipelineSource.gitHub('bryanpan342/cdk-pipelines-v2', 'master'),
+        input: pipelines.CodePipelineSource.connection('bryanpan342/cdk-pipelines-v2', 'master', {
+          connectionArn: 'arn:aws:codestar-connections:us-east-1:045046196850:connection/ace566cc-cc19-44ce-a133-6b1777328832',
+        }),
         commands: [
           'yarn install',
           'yarn build',
           'npx cdk synth',
         ],
-      })
+      }),
     });
 
     const unsafeStage = new MyStage(this, 'Beta', { makeUnsafe: true });
