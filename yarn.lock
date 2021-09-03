@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@aws-c2a/cdk-pipelines-step@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@aws-c2a/cdk-pipelines-step/-/cdk-pipelines-step-0.5.0.tgz#01769d620da684c9adb22bde90bee1de3ca98154"
+  integrity sha512-/fQstsBG8nhs8IPBIzTq+g+4tYg+2g+JdZ7cAgxNYQiNLgaIGduVSSiW3BGKxNLii6tPoPWPE5eZpDWR+sZyqg==
+  dependencies:
+    "@aws-cdk/cfnspec" "1.115.0"
+
 "@aws-cdk/assert@1.116.0":
   version "1.116.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/assert/-/assert-1.116.0.tgz#4a6c74a7dad37d210f552f76787c2bf268e47195"
@@ -654,6 +661,13 @@
     "@aws-cdk/aws-s3" "1.116.0"
     "@aws-cdk/core" "1.116.0"
     constructs "^3.3.69"
+
+"@aws-cdk/cfnspec@1.115.0":
+  version "1.115.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cfnspec/-/cfnspec-1.115.0.tgz#6e56a604650304615657a838aa03d9f17417db92"
+  integrity sha512-5jxzxW35gUyiirUOdJlS9kqRqCJUXmQJnIcpsGGZ7LxIwdkADUjIfZPoBE8lWRoWei1IjD6qe7VOMi6XdlW+mw==
+  dependencies:
+    md5 "^2.3.0"
 
 "@aws-cdk/cfnspec@1.116.0":
   version "1.116.0"

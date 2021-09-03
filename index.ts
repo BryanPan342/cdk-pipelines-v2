@@ -1,7 +1,8 @@
-import { App, Construct, SecretValue, Stack, StackProps, Stage, StageProps } from "@aws-cdk/core";
+import { App, Construct, Stack, StackProps, Stage, StageProps } from "@aws-cdk/core";
 import * as sns from '@aws-cdk/aws-sns';
 import * as iam from '@aws-cdk/aws-iam';
 import * as pipelines from '@aws-cdk/pipelines';
+import { PerformChangeAnalysis } from "@aws-c2a/cdk-pipelines-step";
 
 interface MyStageProps extends StageProps {
   makeUnsafe?: boolean;
@@ -39,7 +40,14 @@ class PipelinesStack extends Stack {
       })
     });
 
-    const stage1 = pipeline.addStage(new MyStage(this, 'Beta', { makeUnsafe: true }));
+    const unsafeStage = new MyStage(this, 'Beta', { makeUnsafe: true });
+    pipeline.addStage(unsafeStage, {
+      pre: [
+        new PerformChangeAnalysis('c2a', {
+          stage: unsafeStage,
+        }),
+      ],
+    });
   }
 }
 

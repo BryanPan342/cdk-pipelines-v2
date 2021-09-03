@@ -21,6 +21,7 @@
     "typescript": "~3.9.7"
   },
   "dependencies": {
+    "@aws-c2a/cdk-pipelines-step": "^0.5.0",
     "@aws-cdk/aws-iam": "^1.116.0",
     "@aws-cdk/aws-sns": "^1.116.0",
     "@aws-cdk/core": "1.116.0",
